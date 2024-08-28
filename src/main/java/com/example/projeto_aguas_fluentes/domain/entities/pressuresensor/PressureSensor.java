@@ -1,17 +1,34 @@
-package com.example.projeto_aguas_fluentes.domain;
+package com.example.projeto_aguas_fluentes.domain.entities.pressuresensor;
+
+import com.example.projeto_aguas_fluentes.domain.Address;
+
+import com.example.projeto_aguas_fluentes.domain.PressureThresholds;
+import com.example.projeto_aguas_fluentes.domain.Status;
 
 import java.time.LocalDate;
 
 public class PressureSensor {
+
     private Long id;
 
-    private String location;
+    private Address location;
 
     private Status status;
 
     private LocalDate lastCalibrationDate;
 
     private PressureThresholds pressureThresholds;
+
+    public PressureSensor(Address location, Status status, LocalDate lastCalibrationDate, PressureThresholds pressureThresholds) {
+        if (location == null) {
+            throw new IllegalArgumentException("Localização não fornecida!");
+        }
+
+        this.location = location;
+        this.status = status;
+        this.lastCalibrationDate = lastCalibrationDate;
+        this.pressureThresholds = pressureThresholds;
+    }
 
     public Long getId() {
         return id;
@@ -21,11 +38,11 @@ public class PressureSensor {
         this.id = id;
     }
 
-    public String getLocation() {
+    public Address getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    public void setLocation(Address location) {
         this.location = location;
     }
 

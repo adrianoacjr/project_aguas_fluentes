@@ -11,7 +11,7 @@ public class GetPressureSensor {
         this.repository = repository;
     }
 
-    public PressureSensor getById() {
-        returm this.repository
+    public PressureSensor getSensorById(Long sensorId) {
+        return this.repository.getById(sensorId);
     }
 }
